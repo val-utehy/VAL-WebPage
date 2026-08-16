@@ -11,13 +11,9 @@ import {
   ResearchPreview,
 } from "@/components/HomeSections";
 import { getDictionary } from "@/data/content";
-import { isLocale, locales } from "@/lib/i18n";
+import { isLocale } from "@/lib/i18n";
 
 export const dynamicParams = false;
-
-export function generateStaticParams() {
-  return locales.map((lang) => ({ lang }));
-}
 
 export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;

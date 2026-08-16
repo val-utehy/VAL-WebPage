@@ -530,6 +530,7 @@ html[data-theme="light"] .theme-toggle__thumb { transform: translateX(0); backgr
 .locale-gateway p { margin: 0; color: var(--muted); font-size: 13px; letter-spacing: .035em; }
 .locale-gateway > div { display: flex; gap: 10px; }
 .locale-gateway a { min-width: 112px; padding: 11px 16px; border: 1px solid var(--line); border-radius: 999px; font-size: 12px; }
+.admin-shell { min-height: 100svh; }
 
 .hero-fallback--logo { display: grid; place-items: center; background: radial-gradient(circle at center, rgba(234,97,29,.18), transparent 38%); }
 .hero-fallback--logo img { width: min(58%, 700px); filter: drop-shadow(0 35px 60px rgba(184,56,8,.25)); }
