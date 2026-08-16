@@ -1,0 +1,91 @@
+# Replace the two CHANGE_ME values before publishing the admin.
+# See docs/admin-cms.md for the OAuth proxy setup; never add an OAuth client secret here.
+backend:
+  name: github
+  repo: "CHANGE_ME/vision-learning-lab"
+  branch: main
+  base_url: "https://CHANGE_ME.example.com"
+  auth_endpoint: auth
+
+publish_mode: simple
+local_backend: true
+
+collections:
+  - name: posts
+    label: Tin tức
+    label_singular: Bài viết
+    folder: content/posts
+    path: "{{slug}}/index"
+    create: true
+    slug: "{{slug}}"
+    media_folder: images
+    public_folder: ""
+    fields:
+      - { label: "Tiêu đề (EN)", name: title, widget: string }
+      - { label: "Tiêu đề (VI)", name: titleVi, widget: string }
+      - { label: Ngày, name: date, widget: datetime, format: "YYYY-MM-DD", time_format: false }
+      - { label: "Tóm tắt (EN)", name: excerpt, widget: text }
+      - { label: "Tóm tắt (VI)", name: excerptVi, widget: text }
+      - { label: "Tác giả", name: author, widget: string, required: false }
+      - { label: "Tác giả (VI)", name: authorVi, widget: string, required: false }
+      - { label: "Ảnh bìa", name: cover, widget: image, required: false }
+      - { label: "Mô tả ảnh bìa (EN)", name: coverAlt, widget: string, required: false }
+      - { label: "Mô tả ảnh bìa (VI)", name: coverAltVi, widget: string, required: false }
+      - { label: "Nổi bật", name: featured, widget: boolean, default: false, required: false }
+      - { label: Nháp, name: draft, widget: boolean, default: true }
+      - { label: "Nội dung (EN)", name: body, widget: markdown }
+
+  - name: members
+    label: Thành viên
+    label_singular: Thành viên
+    folder: content/members
+    path: "{{slug}}/main"
+    create: true
+    slug: "{{slug}}"
+    media_folder: images
+    public_folder: ""
+    fields:
+      - { label: "Họ tên (EN)", name: name, widget: string }
+      - { label: "Họ tên (VI)", name: nameVi, widget: string, required: false }
+      - { label: "Vai trò (EN)", name: role, widget: string }
+      - { label: "Vai trò (VI)", name: roleVi, widget: string, required: false }
+      - label: Nhóm
+        name: group
+        widget: select
+        options: [faculty, phd_student, masters_student, undergraduate_researcher, research_associate, alumni]
+      - { label: "Thứ tự", name: order, widget: number, value_type: int, default: 100 }
+      - { label: "Ảnh chân dung", name: photo, widget: image, required: false }
+      - { label: Email, name: email, widget: string, required: false }
+      - { label: "Điện thoại", name: phone, widget: string, required: false }
+      - { label: Website, name: website, widget: string, required: false }
+      - { label: GitHub, name: github, widget: string, required: false }
+      - { label: "Google Scholar", name: scholar, widget: string, required: false }
+      - { label: "Hướng quan tâm (EN, cách nhau bởi |)", name: interests, widget: string, required: false }
+      - { label: "Hướng quan tâm (VI, cách nhau bởi |)", name: interestsVi, widget: string, required: false }
+      - { label: "Tiểu sử (EN)", name: body, widget: markdown }
+      - { label: "Tiểu sử (VI)", name: bioVi, widget: text, required: false }
+      - { label: Nháp, name: draft, widget: boolean, default: true }
+
+  - name: gallery
+    label: Thư viện ảnh
+    label_singular: Album ảnh
+    folder: content/gallery
+    path: "{{slug}}/index"
+    create: true
+    slug: "{{slug}}"
+    media_folder: images
+    public_folder: ""
+    fields:
+      - { label: "Tiêu đề (EN)", name: title, widget: string }
+      - { label: "Tiêu đề (VI)", name: titleVi, widget: string, required: false }
+      - { label: Ngày, name: date, widget: datetime, format: "YYYY-MM-DD", time_format: false }
+      - { label: "Danh mục (EN)", name: category, widget: string }
+      - { label: "Danh mục (VI)", name: categoryVi, widget: string, required: false }
+      - { label: "Ảnh đại diện", name: image, widget: image }
+      - { label: "Mô tả ảnh (EN)", name: alt, widget: string }
+      - { label: "Mô tả ảnh (VI)", name: altVi, widget: string, required: false }
+      - { label: "Thứ tự", name: order, widget: number, value_type: int, default: 100 }
+      - { label: "Nổi bật", name: featured, widget: boolean, default: false, required: false }
+      - { label: Nháp, name: draft, widget: boolean, default: true }
+      - { label: "Nội dung (EN)", name: body, widget: markdown }
+      - { label: "Nội dung (VI)", name: descriptionVi, widget: text, required: false }

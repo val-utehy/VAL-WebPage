@@ -1,0 +1,10 @@
+node_modules
+.next
+out
+public/gallery/*/images/
+public/members/*/images/
+public/posts/*/images/
+.env
+.env.local
+*.log
+.DS_Store

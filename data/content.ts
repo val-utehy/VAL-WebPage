@@ -1,0 +1,293 @@
+import type { Locale } from "@/lib/i18n";
+
+const en = {
+  metadata: {
+    description: "Computer vision, multimodal learning, 3D vision and Earth observation research.",
+  },
+  nav: {
+    research: "Research",
+    publications: "Publications",
+    people: "People",
+    gallery: "Gallery",
+    news: "News",
+    join: "Join",
+    contact: "Contact",
+    workWithUs: "Work with us",
+    menu: "Toggle navigation",
+    language: "Language",
+    switchToLight: "Switch to light theme",
+    switchToDark: "Switch to dark theme",
+  },
+  brand: { top: "Vision & Learning", bottom: "Research Lab" },
+  hero: {
+    eyebrow: "Vision and Learning Lab",
+    line1: "From pixels",
+    line2: "to intelligence.",
+    lead: "We build visual learning systems that perceive, reason and create—across images, video, 3D environments and Earth observation data.",
+    primary: "Explore our research",
+    secondary: "Latest publications",
+    statusA: "Subtle 3D identity",
+    statusB: "Lightweight interaction",
+    scroll: "Scroll to introduction",
+  },
+  introduction: {
+    eyebrow: "Introduction",
+    title: "We study how machines learn to see—and how visual intelligence can serve the real world.",
+    intro: "Our research combines rigorous machine learning, visual computing and domain knowledge. We work from foundational methods to deployable systems, with open science and measurable impact at the center.",
+  },
+  film: {
+    eyebrow: "Research in focus",
+    title: "From visual perception to systems that can reason in the real world.",
+    intro: "We connect machine learning, visual computing and domain expertise to turn research questions into robust methods, open tools and deployable systems.",
+    label: "Perception · Learning · Reasoning",
+    note: "Foundational research, built for measurable impact.",
+  },
+  gallery: {
+    eyebrow: "Gallery",
+    title: "People, experiments and moments behind the research.",
+    intro: "A visual record of seminars, workshops, student projects and collaborations across the lab.",
+    link: "View the complete gallery",
+    close: "Close image",
+  },
+  research: {
+    eyebrow: "Research areas",
+    title: "Methods that move from perception to spatial and semantic understanding.",
+    link: "View all research directions",
+  },
+  projects: {
+    eyebrow: "Selected projects",
+    title: "Research engineered into systems, benchmarks and open tools.",
+  },
+  publications: {
+    eyebrow: "Publications",
+    title: "Recent work presented at leading research venues.",
+    link: "Browse all publications",
+  },
+  people: {
+    eyebrow: "People",
+    title: "A collaborative group of researchers, engineers and students.",
+    link: "Meet the full team",
+  },
+  latest: { eyebrow: "Latest", title: "News & achievements", link: "View all news" },
+  collaborators: {
+    eyebrow: "Collaborators",
+    title: "Working across disciplines and institutions.",
+  },
+  joinBanner: {
+    eyebrow: "Join VL Lab",
+    title1: "Bring a difficult visual problem.",
+    title2: "Build the answer with us.",
+    intro: "We welcome PhD candidates, graduate students, research interns and collaborators who value depth, openness and real-world impact.",
+    cta: "See open opportunities",
+  },
+  pages: {
+    research: {
+      eyebrow: "Research",
+      title: "Visual learning across pixels, language and space.",
+      intro: "Our agenda connects foundational machine learning with the scientific and engineering challenges of real visual systems.",
+    },
+    publications: {
+      eyebrow: "Publications",
+      title: "Research, documented.",
+      intro: "Books, journal articles and conference papers from Vision and Learning Lab.",
+      pdf: "PDF",
+    },
+    gallery: {
+      eyebrow: "Gallery",
+      title: "The lab beyond papers and prototypes.",
+      intro: "Browse seminars, workshops, project demonstrations and everyday research moments from Vision and Learning Lab.",
+    },
+    news: {
+      eyebrow: "News",
+      title: "Updates from Vision and Learning Lab.",
+      intro: "Research milestones, events, opportunities and other updates from the lab.",
+    },
+    people: {
+      eyebrow: "People",
+      title: "Different backgrounds. One shared research culture.",
+      intro: "We bring together machine learning, visual computing, geospatial science and software engineering.",
+    },
+    join: {
+      eyebrow: "Join the lab",
+      title: "Do work that is technically deep and publicly useful.",
+      intro: "We look for curiosity, strong fundamentals and the willingness to test ideas carefully.",
+      application: "Application",
+      applicationTitle: "Start with a concise research note.",
+      applicationCopy: "Send your CV, transcript or portfolio, and one page describing the problem you want to investigate and why it matters.",
+      email: "Email the lab",
+      roles: [
+        ["PhD candidates", "Long-term research on visual intelligence, multimodal learning, 3D vision or GeoAI."],
+        ["Graduate researchers", "Thesis and research-track opportunities with close technical mentorship."],
+        ["Research interns", "Focused 3–6 month projects with a clear research question and deliverable."],
+      ],
+    },
+    contact: {
+      eyebrow: "Contact",
+      title: "Let’s discuss research, collaboration or study opportunities.",
+      intro: "Vision and Learning Laboratory, Faculty of Information Technology, Hung Yen University of Technology and Education.",
+      email: "Email",
+      emailCopy: "Research collaboration, visits and general enquiries.",
+      location: "Location",
+      locationTitle: "Faculty of Information Technology",
+      locationCopy: "Hung Yen University of Technology and Education, Vietnam",
+    },
+  },
+  footer: {
+    description: "Advancing computer vision and machine intelligence through foundational research and responsible applications.",
+    explore: "Explore",
+    connect: "Connect",
+    location: "Location",
+    join: "Join the lab",
+    address: "Faculty of Information Technology\nHung Yen University of Technology and Education\nVietnam",
+    bottom: "Research · Education · Open science",
+  },
+} as const;
+
+const vi = {
+  metadata: {
+    description: "Nghiên cứu thị giác máy tính, học đa phương thức, thị giác 3D và quan sát Trái Đất.",
+  },
+  nav: {
+    research: "Nghiên cứu",
+    publications: "Công bố",
+    people: "Thành viên",
+    gallery: "Thư viện",
+    news: "Tin tức",
+    join: "Tham gia",
+    contact: "Liên hệ",
+    workWithUs: "Làm việc cùng chúng tôi",
+    menu: "Mở hoặc đóng điều hướng",
+    language: "Ngôn ngữ",
+    switchToLight: "Chuyển sang giao diện sáng",
+    switchToDark: "Chuyển sang giao diện tối",
+  },
+  brand: { top: "Vision & Learning", bottom: "Phòng nghiên cứu" },
+  hero: {
+    eyebrow: "Vision and Learning Lab",
+    line1: "Từ từng điểm ảnh",
+    line2: "đến trí tuệ.",
+    lead: "Chúng tôi xây dựng các hệ thống học thị giác có khả năng nhận biết, suy luận và sáng tạo trên ảnh, video, không gian 3D và dữ liệu quan sát Trái Đất.",
+    primary: "Khám phá nghiên cứu",
+    secondary: "Công bố mới nhất",
+    statusA: "Nhận diện 3D tối giản",
+    statusB: "Tương tác nhẹ",
+    scroll: "Cuộn tới phần giới thiệu",
+  },
+  introduction: {
+    eyebrow: "Giới thiệu",
+    title: "Chúng tôi nghiên cứu cách máy học nhìn và cách trí tuệ thị giác tạo ra giá trị trong thế giới thực.",
+    intro: "Nghiên cứu kết hợp học máy, điện toán thị giác và tri thức chuyên ngành. Lab phát triển từ phương pháp nền tảng tới hệ thống có thể triển khai, đặt khoa học mở và tác động đo lường được ở vị trí trung tâm.",
+  },
+  film: {
+    eyebrow: "Trọng tâm nghiên cứu",
+    title: "Từ nhận biết thị giác tới các hệ thống có khả năng suy luận trong thế giới thực.",
+    intro: "Lab kết nối học máy, điện toán thị giác và tri thức chuyên ngành để biến câu hỏi nghiên cứu thành phương pháp vững chắc, công cụ mở và hệ thống có thể triển khai.",
+    label: "Nhận biết · Học tập · Suy luận",
+    note: "Nghiên cứu nền tảng, hướng tới tác động có thể đo lường.",
+  },
+  gallery: {
+    eyebrow: "Thư viện ảnh",
+    title: "Con người, thử nghiệm và những khoảnh khắc phía sau nghiên cứu.",
+    intro: "Ghi lại seminar, workshop, dự án sinh viên và các hoạt động hợp tác trong lab.",
+    link: "Xem toàn bộ thư viện",
+    close: "Đóng ảnh",
+  },
+  research: {
+    eyebrow: "Hướng nghiên cứu",
+    title: "Từ nhận biết thị giác tới hiểu biết không gian và ngữ nghĩa.",
+    link: "Xem toàn bộ hướng nghiên cứu",
+  },
+  projects: {
+    eyebrow: "Dự án tiêu biểu",
+    title: "Biến nghiên cứu thành hệ thống, bộ chuẩn và công cụ mở.",
+  },
+  publications: {
+    eyebrow: "Công bố khoa học",
+    title: "Những công trình gần đây tại các hội nghị và tạp chí hàng đầu.",
+    link: "Xem toàn bộ công bố",
+  },
+  people: {
+    eyebrow: "Thành viên",
+    title: "Một tập thể gồm nhà nghiên cứu, kỹ sư và sinh viên cùng hợp tác.",
+    link: "Gặp gỡ toàn bộ đội ngũ",
+  },
+  latest: { eyebrow: "Mới nhất", title: "Tin tức và thành tựu", link: "Xem toàn bộ tin tức" },
+  collaborators: {
+    eyebrow: "Đối tác",
+    title: "Hợp tác liên ngành giữa nhiều tổ chức và lĩnh vực.",
+  },
+  joinBanner: {
+    eyebrow: "Tham gia VL Lab",
+    title1: "Mang đến một bài toán thị giác khó.",
+    title2: "Cùng chúng tôi xây dựng lời giải.",
+    intro: "Chúng tôi chào đón nghiên cứu sinh, học viên cao học, thực tập sinh và đối tác coi trọng chiều sâu, tính cởi mở và tác động thực tiễn.",
+    cta: "Xem các cơ hội đang mở",
+  },
+  pages: {
+    research: {
+      eyebrow: "Nghiên cứu",
+      title: "Học thị giác trên điểm ảnh, ngôn ngữ và không gian.",
+      intro: "Chương trình nghiên cứu kết nối học máy nền tảng với các thách thức khoa học và kỹ thuật của những hệ thống thị giác thực tế.",
+    },
+    publications: {
+      eyebrow: "Công bố",
+      title: "Nghiên cứu được công bố.",
+      intro: "Sách, bài báo tạp chí và công trình hội nghị từ Vision and Learning Lab.",
+      pdf: "PDF",
+    },
+    gallery: {
+      eyebrow: "Thư viện ảnh",
+      title: "Những hoạt động phía sau bài báo và prototype.",
+      intro: "Khám phá seminar, workshop, trình diễn dự án và các khoảnh khắc nghiên cứu thường ngày của Vision and Learning Lab.",
+    },
+    news: {
+      eyebrow: "Tin tức",
+      title: "Cập nhật từ Vision and Learning Lab.",
+      intro: "Các cột mốc nghiên cứu, sự kiện, cơ hội và cập nhật mới từ lab.",
+    },
+    people: {
+      eyebrow: "Thành viên",
+      title: "Nhiều nền tảng khác nhau. Một văn hóa nghiên cứu chung.",
+      intro: "Lab kết nối học máy, điện toán thị giác, khoa học địa không gian và kỹ nghệ phần mềm.",
+    },
+    join: {
+      eyebrow: "Tham gia lab",
+      title: "Thực hiện nghiên cứu có chiều sâu kỹ thuật và hữu ích cho cộng đồng.",
+      intro: "Chúng tôi tìm kiếm sự tò mò, nền tảng vững và tinh thần kiểm chứng ý tưởng cẩn thận.",
+      application: "Ứng tuyển",
+      applicationTitle: "Bắt đầu bằng một ghi chú nghiên cứu ngắn gọn.",
+      applicationCopy: "Gửi CV, bảng điểm hoặc portfolio cùng một trang mô tả bài toán bạn muốn nghiên cứu và lý do bài toán đó quan trọng.",
+      email: "Gửi email cho lab",
+      roles: [
+        ["Nghiên cứu sinh tiến sĩ", "Nghiên cứu dài hạn về trí tuệ thị giác, học đa phương thức, thị giác 3D hoặc GeoAI."],
+        ["Học viên cao học", "Cơ hội làm luận văn và nghiên cứu với hướng dẫn kỹ thuật sát sao."],
+        ["Thực tập sinh nghiên cứu", "Dự án tập trung từ 3–6 tháng với câu hỏi nghiên cứu và sản phẩm đầu ra rõ ràng."],
+      ],
+    },
+    contact: {
+      eyebrow: "Liên hệ",
+      title: "Trao đổi về nghiên cứu, hợp tác hoặc cơ hội học tập.",
+      intro: "Vision and Learning Laboratory, Khoa Công nghệ Thông tin, Trường Đại học Sư phạm Kỹ thuật Hưng Yên.",
+      email: "Email",
+      emailCopy: "Hợp tác nghiên cứu, tham quan và các yêu cầu chung.",
+      location: "Địa điểm",
+      locationTitle: "Khoa Công nghệ Thông tin",
+      locationCopy: "Trường Đại học Sư phạm Kỹ thuật Hưng Yên, Việt Nam",
+    },
+  },
+  footer: {
+    description: "Thúc đẩy thị giác máy tính và trí tuệ máy thông qua nghiên cứu nền tảng và các ứng dụng có trách nhiệm.",
+    explore: "Khám phá",
+    connect: "Kết nối",
+    location: "Địa điểm",
+    join: "Tham gia lab",
+    address: "Khoa Công nghệ Thông tin\nTrường Đại học Sư phạm Kỹ thuật Hưng Yên\nViệt Nam",
+    bottom: "Nghiên cứu · Đào tạo · Khoa học mở",
+  },
+} as const;
+
+export type Dictionary = typeof en;
+
+export function getDictionary(locale: Locale): Dictionary {
+  return (locale === "vi" ? vi : en) as Dictionary;
+}
