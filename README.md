@@ -62,7 +62,7 @@ The toggle component is `components/ThemeToggle.tsx`. Theme-specific colors are 
 
 ## Manage content
 
-Lab editors can create news posts, member profiles and gallery albums at `/admin/`. The CMS writes Markdown files to GitHub, then GitHub Actions rebuilds the static website. Before enabling it in production, follow [the admin setup guide](docs/admin-cms.md) to configure its GitHub OAuth proxy.
+`/admin/` is the internal administration login interface. Its preview login leads to the dashboard at `/admin/dashboard/`; real authentication and each module's CMS workflow will be added in a later phase.
 
 ## Add a news post using Markdown
 
@@ -176,7 +176,7 @@ Recommended format: short muted H.264 MP4, 16:9, compressed poster, no critical 
 content/members/                  Member Markdown files
 content/gallery/                  Gallery Markdown files
 content/posts/                    News-post Markdown files
-public/admin/                     Decap CMS entry point and configuration
+app/admin/                        Internal admin dashboard shell
 lib/members.ts                    Build-time member Markdown reader
 lib/gallery.ts                    Build-time gallery Markdown reader
 lib/posts.ts                      Build-time news-post Markdown reader
