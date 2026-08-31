@@ -1,9 +1,8 @@
 import { notFound } from "next/navigation";
 import { Hero } from "@/components/Hero";
-import { LabFilm } from "@/components/LabFilm";
+import { AboutGroupSection } from "@/components/AboutGroupSection";
 import { GalleryPreview } from "@/components/GalleryPreview";
 import {
-  Introduction,
   JoinBanner,
   NewsAndPartners,
   PeoplePreview,
@@ -23,11 +22,10 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
   return (
     <>
       <Hero lang={lang} copy={dictionary.hero} />
-      <Introduction lang={lang} />
-      <LabFilm copy={dictionary.film} />
+      <AboutGroupSection lang={lang} />
       <ResearchPreview lang={lang} />
-      <GalleryPreview lang={lang} />
       <PublicationsPreview lang={lang} />
+      <GalleryPreview lang={lang} />
       <PeoplePreview lang={lang} />
       <NewsAndPartners lang={lang} />
       <JoinBanner lang={lang} />

@@ -10,7 +10,7 @@ export function SectionHeading({
   intro?: string;
 }) {
   return (
-    <div className="section-heading">
+    <div className="section-heading" data-reveal>
       <div className="section-kicker">
         <span>{index}</span>
         <p>{eyebrow}</p>

@@ -8,3 +8,4 @@ public/posts/*/images/
 .env.local
 *.log
 .DS_Store
+.claude/

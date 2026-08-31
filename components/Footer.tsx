@@ -20,7 +20,7 @@ export function Footer({
     bottom: string;
   };
   brand: { top: string; bottom: string };
-  nav: { research: string; publications: string; people: string; gallery: string; news: string; contact: string };
+  nav: { about: string; publications: string; people: string; gallery: string; news: string; contact: string };
 }) {
   return (
     <footer className="footer">
@@ -31,7 +31,7 @@ export function Footer({
         </div>
         <div>
           <h3>{copy.explore}</h3>
-          <Link href={withLocale(lang, "/research")}>{nav.research}</Link>
+          <Link href={withLocale(lang, "/about")}>{nav.about}</Link>
           <Link href={withLocale(lang, "/publications")}>{nav.publications}</Link>
           <Link href={withLocale(lang, "/people")}>{nav.people}</Link>
           <Link href={withLocale(lang, "/gallery")}>{nav.gallery}</Link>

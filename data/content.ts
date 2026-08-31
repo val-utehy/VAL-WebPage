@@ -5,6 +5,7 @@ const en = {
     description: "Computer vision, multimodal learning, 3D vision and Earth observation research.",
   },
   nav: {
+    about: "About the Group",
     research: "Research",
     publications: "Publications",
     people: "People",
@@ -86,6 +87,17 @@ const en = {
       title: "Visual learning across pixels, language and space.",
       intro: "Our agenda connects foundational machine learning with the scientific and engineering challenges of real visual systems.",
     },
+    about: {
+      eyebrow: "About the group",
+      title: "Vision and Learning research at UTEHY.",
+      intro: "Vision and Learning Lab is a research group at Hung Yen University of Technology and Education. We study visual intelligence across images, video and real-world environments.",
+      paragraphs: [
+        "Our research asks how visual systems can become more capable, reliable and useful beyond constrained benchmarks. We develop methods, datasets and evaluation practices that connect foundational learning with real applications.",
+        "The group works across computer vision, multimodal learning, 3D vision and generative AI. We are particularly interested in visual representation learning, perception, reasoning and responsible evaluation.",
+        "We collaborate across academic and applied settings while building a research culture grounded in careful experimentation, open science and meaningful educational impact.",
+      ],
+      themesTitle: "Research at a glance",
+    },
     publications: {
       eyebrow: "Publications",
       title: "Research, documented.",
@@ -104,8 +116,8 @@ const en = {
     },
     people: {
       eyebrow: "People",
-      title: "Different backgrounds. One shared research culture.",
-      intro: "We bring together machine learning, visual computing, geospatial science and software engineering.",
+      title: "The people behind every result.",
+      intro: "Faculty, doctoral and master’s researchers, and undergraduates working on computer vision, deep learning and image processing at UTEHY.",
     },
     join: {
       eyebrow: "Join the lab",
@@ -148,6 +160,7 @@ const vi = {
     description: "Nghiên cứu thị giác máy tính, học đa phương thức, thị giác 3D và quan sát Trái Đất.",
   },
   nav: {
+    about: "Về nhóm nghiên cứu",
     research: "Nghiên cứu",
     publications: "Công bố",
     people: "Thành viên",
@@ -229,6 +242,17 @@ const vi = {
       title: "Học thị giác trên điểm ảnh, ngôn ngữ và không gian.",
       intro: "Chương trình nghiên cứu kết nối học máy nền tảng với các thách thức khoa học và kỹ thuật của những hệ thống thị giác thực tế.",
     },
+    about: {
+      eyebrow: "Về nhóm nghiên cứu",
+      title: "Nghiên cứu Vision and Learning tại UTEHY.",
+      intro: "Vision and Learning Lab là nhóm nghiên cứu tại Đại học Sư phạm Kỹ thuật Hưng Yên. Chúng tôi nghiên cứu trí tuệ thị giác trên ảnh, video và các môi trường thực tế.",
+      paragraphs: [
+        "Nghiên cứu của lab đặt câu hỏi làm thế nào để các hệ thống thị giác trở nên năng lực, đáng tin cậy và hữu ích hơn ngoài các bộ chuẩn có điều kiện lý tưởng. Chúng tôi phát triển phương pháp, dữ liệu và cách đánh giá kết nối học nền tảng với ứng dụng thực tế.",
+        "Nhóm làm việc trên thị giác máy tính, học đa phương thức, thị giác 3D và AI tạo sinh; đặc biệt quan tâm đến học biểu diễn thị giác, nhận biết, suy luận và đánh giá có trách nhiệm.",
+        "Lab hợp tác với học thuật và ứng dụng, đồng thời xây dựng văn hóa nghiên cứu dựa trên thực nghiệm cẩn trọng, khoa học mở và tác động giáo dục có ý nghĩa.",
+      ],
+      themesTitle: "Tổng quan nghiên cứu",
+    },
     publications: {
       eyebrow: "Công bố",
       title: "Nghiên cứu được công bố.",
@@ -247,8 +271,8 @@ const vi = {
     },
     people: {
       eyebrow: "Thành viên",
-      title: "Nhiều nền tảng khác nhau. Một văn hóa nghiên cứu chung.",
-      intro: "Lab kết nối học máy, điện toán thị giác, khoa học địa không gian và kỹ nghệ phần mềm.",
+      title: "Những người làm nên từng kết quả.",
+      intro: "Giảng viên, nghiên cứu sinh, học viên cao học và sinh viên cùng làm việc về thị giác máy tính, học sâu và xử lý ảnh tại UTEHY.",
     },
     join: {
       eyebrow: "Tham gia lab",
