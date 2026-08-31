@@ -1,0 +1,14 @@
+---
+name: Vu Quang Phuc
+nameVi: Vũ Quang Phúc
+role: Alumni · Undergraduate Researcher
+roleVi: Cựu thành viên · Sinh viên nghiên cứu
+group: alumni
+order: 95
+initials: QP
+interests: 
+interestsVi: 
+source: https://sites.google.com/view/vallab/members
+bioVi: Cựu thành viên của Vision and Learning Lab.
+---
+Former member of Vision and Learning Lab.

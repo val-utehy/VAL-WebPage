@@ -13,4 +13,10 @@ Use one of these groups: `faculty`, `phd_student`, `masters_student`, `undergrad
 
 Each member folder can contain its own `publications.md`. Add one field block per paper and separate blocks with `---`; use `|` between authors. The website automatically combines duplicate co-authored records for the common Publications page, while each member profile shows only its own file. Names are emphasized only when they map to an existing member profile. Entries are ordered by year, then Faculty → PhD → other active members.
 
-The initial public profile for Nguyen Tien Dat was seeded from the VAL-UTEHY Hugging Face organization because the referenced Google Sites member directory could not be reliably extracted by the build environment. Verify and expand member records against the lab's authoritative roster before publication.
+Profiles for the students listed on <https://sites.google.com/view/vallab/members> were ingested from that page: name, role prefix (NCS -> `phd_student`, HVCH -> `masters_student`, no prefix -> `undergraduate_researcher`), email and portrait. Six people show the site's shared default avatar rather than a photo; no image was saved for them, so the profile falls back to initials.
+
+Two members share the name Nguyen Van Dat and are kept apart by folder only (`nguyen-van-dat`, `nguyen-van-dat-2`); rename them if a clearer distinction exists. Mobile numbers appear on the source page but were deliberately not ingested, because `phone` renders as a public `tel:` link on the profile page. `nguyen-tien-dat` predates the ingest and was left as curated; its Hugging Face role was kept rather than replaced with the roster entry.
+
+`bioVi` is a single frontmatter line, so a multi-paragraph Vietnamese biography separates its paragraphs with the two characters \n\n; the English biography goes in the document body below the frontmatter and uses ordinary blank lines.
+
+Bios and research interests are placeholders. Fill them in before treating these profiles as final.

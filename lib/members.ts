@@ -111,7 +111,11 @@ function toMember(source: MemberSource, locale: Locale): Member | null {
   const localizedAppointments = locale === "vi"
     ? splitList(data.appointmentsVi || data.appointments)
     : splitList(data.appointments);
-  const localizedBio = locale === "vi" ? data.bioVi || body : body;
+  /* Frontmatter is line-based, so a multi-paragraph Vietnamese bio writes
+     its paragraph breaks as the two characters \n, restored here. */
+  const localizedBio = locale === "vi"
+    ? (data.bioVi ? data.bioVi.replace(/\\n/g, "\n") : body)
+    : body;
 
   return {
     slug,
