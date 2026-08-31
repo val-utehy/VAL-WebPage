@@ -66,13 +66,13 @@ export default async function MemberPage({ params }: { params: Promise<{ lang: s
               <aside className="member-profile__support">
                 {member.interests.length ? <div><h2>{interestsLabel}</h2><div className="member-tags">{member.interests.map((interest) => <span key={interest}>{interest}</span>)}</div></div> : null}
                 <div><h2>{linksLabel}</h2><div className="member-links">
-                  {member.email ? <a href={`mailto:${member.email}`}>Email ↗</a> : null}
-                  {member.phone ? <a href={`tel:${member.phone.replace(/\s/g, "")}`}>{phoneLabel} · {member.phone} ↗</a> : null}
-                  {member.website ? <a href={member.website} target="_blank" rel="noreferrer">Website ↗</a> : null}
-                  {member.github ? <a href={member.github} target="_blank" rel="noreferrer">GitHub ↗</a> : null}
-                  {member.huggingface ? <a href={member.huggingface} target="_blank" rel="noreferrer">Hugging Face ↗</a> : null}
-                  {member.scholar ? <a href={member.scholar} target="_blank" rel="noreferrer">Google Scholar ↗</a> : null}
-                  {member.source ? <a href={member.source} target="_blank" rel="noreferrer">{sourceLabel} ↗</a> : null}
+                  {member.email ? <a href={`mailto:${member.email}`}>Email</a> : null}
+                  {member.phone ? <a href={`tel:${member.phone.replace(/\s/g, "")}`}>{phoneLabel} · {member.phone}</a> : null}
+                  {member.website ? <a href={member.website} target="_blank" rel="noreferrer">Website</a> : null}
+                  {member.github ? <a href={member.github} target="_blank" rel="noreferrer">GitHub</a> : null}
+                  {member.huggingface ? <a href={member.huggingface} target="_blank" rel="noreferrer">Hugging Face</a> : null}
+                  {member.scholar ? <a href={member.scholar} target="_blank" rel="noreferrer">Google Scholar</a> : null}
+                  {member.source ? <a href={member.source} target="_blank" rel="noreferrer">{sourceLabel}</a> : null}
                 </div></div>
               </aside>
             </div>
