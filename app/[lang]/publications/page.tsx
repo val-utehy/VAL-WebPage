@@ -24,7 +24,9 @@ export default async function PublicationsPage({ params }: { params: Promise<{ l
       <PageHero eyebrow={copy.eyebrow} title={copy.title} intro={copy.intro} variant="publications" />
       <section className="section section--dark"><div className="shell publication-list--page">
         {categories.map((category) => {
-          const items = publications.filter((paper) => paper.category === category);
+          const items = publications.filter((paper) =>
+            paper.category === category && (category === "Books" || (paper.highlight ?? "Accepted") === "Accepted"),
+          );
           if (!items.length) return null;
           return <section className="publication-category" key={category}><p>{category}</p><div className="publication-list">{items.map((paper) => <PublicationRow key={paper.title} paper={paper} memberNames={getPublicationMemberNames(paper)} />)}</div></section>;
         })}
