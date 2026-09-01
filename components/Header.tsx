@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useMemo, useState, type CSSProperties } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore, type CSSProperties } from "react";
 import { createPortal } from "react-dom";
 import type { Locale } from "@/lib/i18n";
 import { withLocale } from "@/lib/i18n";
@@ -19,6 +19,18 @@ type NavCopy = {
   language: string;
 };
 
+const mobileQuery = "(max-width: 980px)";
+
+function subscribeToMobileViewport(onChange: () => void) {
+  const query = window.matchMedia(mobileQuery);
+  query.addEventListener("change", onChange);
+  return () => query.removeEventListener("change", onChange);
+}
+
+function getMobileViewportSnapshot() {
+  return window.matchMedia(mobileQuery).matches;
+}
+
 export function Header({
   lang,
   copy,
@@ -29,8 +41,7 @@ export function Header({
   brand: { top: string; bottom: string };
 }) {
   const [open, setOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const isMobile = useSyncExternalStore(subscribeToMobileViewport, getMobileViewportSnapshot, () => false);
   const [hidden, setHidden] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const pathname = usePathname();
@@ -45,15 +56,6 @@ export function Header({
     ],
     [copy, lang],
   );
-
-  useEffect(() => {
-    const query = window.matchMedia("(max-width: 980px)");
-    const update = () => setIsMobile(query.matches);
-    setMounted(true);
-    update();
-    query.addEventListener("change", update);
-    return () => query.removeEventListener("change", update);
-  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -139,7 +141,7 @@ export function Header({
           <span />
           <span className="sr-only">{copy.menu}</span>
         </button>
-        {isMobile && mounted ? createPortal(navigation, document.body) : navigation}
+        {isMobile ? createPortal(navigation, document.body) : navigation}
       </div>
     </header>
   );
