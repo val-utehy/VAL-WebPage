@@ -976,19 +976,15 @@ html[data-theme="light"] .member-profile__support h2 { color:#766b63; }
 /* Markdown-driven gallery. */
 .gallery-preview { overflow: hidden; }
 .gallery-grid {
-  display: flex;
-  width: auto;
-  margin-left: -16px;
-}
-.gallery-grid__column {
-  padding-left: 16px;
-  background-clip: padding-box;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-auto-rows: 210px;
+  gap: 16px;
 }
 .gallery-card {
   position: relative;
-  display: block;
-  width: 100%;
-  margin: 0 0 16px;
+  grid-column: span 4;
+  grid-row: span 2;
   min-height: 0;
   overflow: hidden;
   padding: 0;
@@ -998,14 +994,12 @@ html[data-theme="light"] .member-profile__support h2 { color:#766b63; }
   color: #fff;
   text-align: left;
   cursor: zoom-in;
-  break-inside: avoid;
-  -webkit-column-break-inside: avoid;
 }
-.gallery-card--1 { aspect-ratio: 4 / 3; }
-.gallery-card--2 { aspect-ratio: 5 / 4; }
-.gallery-card--3 { aspect-ratio: 4 / 5; }
+.gallery-card--1 { grid-column: span 7; grid-row: span 3; }
+.gallery-card--2 { grid-column: span 5; grid-row: span 2; }
+.gallery-card--3 { grid-column: span 5; grid-row: span 2; }
 .gallery-card--4,
-.gallery-card--5 { aspect-ratio: 4 / 3; }
+.gallery-card--5 { grid-column: span 6; grid-row: span 2; }
 .gallery-card img {
   width: 100%;
   height: 100%;
@@ -1124,12 +1118,14 @@ html[data-theme="light"] .film-stage { box-shadow: 0 34px 84px rgba(73,44,28,.16
 html[data-theme="light"] .gallery-card { background: #d8c9bd; }
 
 @media (max-width: 980px) {
+  .gallery-grid { grid-template-columns: repeat(2, minmax(0,1fr)); grid-auto-rows: 230px; }
   .gallery-card,
   .gallery-card--1,
   .gallery-card--2,
   .gallery-card--3,
   .gallery-card--4,
-  .gallery-card--5 { grid-column: auto; grid-row: auto; }
+  .gallery-card--5 { grid-column: span 1; grid-row: span 2; }
+  .gallery-card--1 { grid-column: span 2; }
   .gallery-lightbox__panel { height:auto; overflow:auto; grid-template-columns: 1fr; }
   .gallery-lightbox__image { min-height: 0; aspect-ratio: 16/10; }
   .gallery-lightbox__copy { border-left: 0; border-top: 1px solid rgba(255,255,255,.08); }
