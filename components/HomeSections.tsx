@@ -10,8 +10,8 @@ import { getAllMembers } from "@/lib/members";
 import { MemberCard } from "./MemberCard";
 import { PublicationRow } from "./PublicationRow";
 import { getPublicationMemberNames, getPublications } from "@/lib/publications";
-import { getAllPosts } from "@/lib/posts";
-import { NewsList } from "./NewsList";
+import { getAllHighlights } from "@/lib/highlights";
+import { HighlightsTimeline } from "./HighlightsTimeline";
 
 /**
  * CANONICAL INTRODUCTION PROMPT
@@ -48,7 +48,7 @@ export function ResearchPreview({ lang }: { lang: Locale }) {
   return (
     <section className="section section--paper research-preview">
       <div className="shell">
-        <SectionHeading index="03" eyebrow={dictionary.research.eyebrow} title={dictionary.research.title} />
+        <SectionHeading index="02" eyebrow={dictionary.research.eyebrow} title={dictionary.research.title} />
         <ResearchAreasGrid areas={researchAreas} />
         <div className="section-link" data-reveal><Link href={withLocale(lang, "/research")}>{dictionary.research.link} <span>↗</span></Link></div>
       </div>
@@ -62,7 +62,7 @@ export function PublicationsPreview({ lang }: { lang: Locale }) {
   return (
     <section className="section section--dark">
       <div className="shell">
-        <SectionHeading index="04" eyebrow={dictionary.publications.eyebrow} title={dictionary.publications.title} />
+        <SectionHeading index="03" eyebrow={dictionary.publications.eyebrow} title={dictionary.publications.title} />
         <div className="publication-list" data-reveal>
           {publications.slice(0, 4).map((paper) => <PublicationRow key={paper.title} paper={paper} memberNames={getPublicationMemberNames(paper)} />)}
         </div>
@@ -74,11 +74,18 @@ export function PublicationsPreview({ lang }: { lang: Locale }) {
 
 export function PeoplePreview({ lang }: { lang: Locale }) {
   const dictionary = getDictionary(lang);
-  const people = getAllMembers(lang).slice(0, 4);
+  const members = getAllMembers(lang);
+  const people = [
+    ...members.filter((member) => member.group === "faculty").slice(0, 2),
+    ...members.filter((member) => member.group === "phd_student").slice(0, 2),
+  ];
+  if (people.length < 4) {
+    people.push(...members.filter((member) => member.group === "masters_student").slice(0, 4 - people.length));
+  }
   return (
     <section className="section section--light">
       <div className="shell">
-        <SectionHeading index="06" eyebrow={dictionary.people.eyebrow} title={dictionary.people.title} />
+        <SectionHeading index="05" eyebrow={dictionary.people.eyebrow} title={dictionary.people.title} />
         <div className="people-grid" data-reveal>{people.map((member, index) => <MemberCard key={member.slug} member={member} lang={lang} index={index} />)}</div>
         <div className="section-link" data-reveal><Link href={withLocale(lang, "/people")}>{dictionary.people.link} <span>↗</span></Link></div>
       </div>
@@ -86,17 +93,17 @@ export function PeoplePreview({ lang }: { lang: Locale }) {
   );
 }
 
-export function NewsAndPartners({ lang }: { lang: Locale }) {
+export function HighlightsAndPartners({ lang }: { lang: Locale }) {
   const dictionary = getDictionary(lang);
   const { partners } = getSiteData(lang);
-  const posts = getAllPosts(lang).slice(0, 3);
+  const highlights = getAllHighlights(lang).slice(0, 3);
   return (
     <section className="section section--paper">
-      <div className="shell news-partners-grid">
+      <div className="shell highlights-partners-grid">
         <div>
-          <SectionHeading index="07" eyebrow={dictionary.latest.eyebrow} title={dictionary.latest.title} />
-          <div data-reveal><NewsList posts={posts} lang={lang} compact /></div>
-          <div className="section-link" data-reveal><Link href={withLocale(lang, "/news")}>{dictionary.latest.link} <span>↗</span></Link></div>
+          <SectionHeading index="06" eyebrow={dictionary.latest.eyebrow} title={dictionary.latest.title} />
+          <div data-reveal><HighlightsTimeline highlights={highlights} lang={lang} compact /></div>
+          <div className="section-link" data-reveal><Link href={withLocale(lang, "/highlights")}>{dictionary.latest.link} <span>↗</span></Link></div>
         </div>
         <aside className="partners-panel" data-reveal>
           <p className="eyebrow"><span /> {dictionary.collaborators.eyebrow}</p>

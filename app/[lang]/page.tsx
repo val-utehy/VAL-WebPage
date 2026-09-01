@@ -4,7 +4,7 @@ import { AboutGroupSection } from "@/components/AboutGroupSection";
 import { GalleryPreview } from "@/components/GalleryPreview";
 import {
   JoinBanner,
-  NewsAndPartners,
+  HighlightsAndPartners,
   PeoplePreview,
   PublicationsPreview,
   ResearchPreview,
@@ -27,7 +27,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       <PublicationsPreview lang={lang} />
       <GalleryPreview lang={lang} />
       <PeoplePreview lang={lang} />
-      <NewsAndPartners lang={lang} />
+      <HighlightsAndPartners lang={lang} />
       <JoinBanner lang={lang} />
     </>
   );

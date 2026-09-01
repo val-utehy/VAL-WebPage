@@ -8,7 +8,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   icons: {
-    icon: [{ url: "/brand/vl-lab-logo.png", type: "image/png" }],
+    icon: [{ url: "/icon.png", type: "image/png" }],
     apple: [{ url: "/brand/vl-lab-logo.png", type: "image/png" }],
   },
 };

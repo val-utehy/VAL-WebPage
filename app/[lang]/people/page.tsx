@@ -19,15 +19,14 @@ export default async function PeoplePage({ params }: { params: Promise<{ lang: s
   const copy = getDictionary(lang).pages.people;
   const members = getAllMembers(lang);
   const labels = lang === "vi"
-    ? { faculty: "Giảng viên", phd_student: "Nghiên cứu sinh", masters_student: "Học viên cao học", undergraduate_researcher: "Sinh viên nghiên cứu", research_associate: "Cộng tác viên nghiên cứu", alumni: "Cựu thành viên", note: "Hồ sơ thành viên được tạo tự động từ các tệp Markdown trong content/members." }
-    : { faculty: "Faculty", phd_student: "PhD Students", masters_student: "Master’s Students", undergraduate_researcher: "Undergraduate Researchers", research_associate: "Research Associates", alumni: "Alumni", note: "Member profiles are generated automatically from Markdown files in content/members." };
+    ? { faculty: "Giảng viên", phd_student: "Nghiên cứu sinh", masters_student: "Học viên cao học", undergraduate_researcher: "Sinh viên nghiên cứu", research_associate: "Cộng tác viên nghiên cứu", alumni: "Cựu thành viên" }
+    : { faculty: "Faculty", phd_student: "PhD Students", masters_student: "Master’s Students", undergraduate_researcher: "Undergraduate Researchers", research_associate: "Research Associates", alumni: "Alumni" };
 
   return (
     <>
       <PageHero eyebrow={copy.eyebrow} title={copy.title} intro={copy.intro} />
-      <section className="section section--light">
+      <section className="section section--light people-directory-section">
         <div className="shell member-directory">
-          <p className="content-note">{labels.note}</p>
           {groupOrder.map((group) => {
             const groupMembers = members.filter((member) => member.group === group);
             if (!groupMembers.length) return null;

@@ -3,7 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const collections = ["gallery", "members", "posts"];
+const collections = ["gallery", "members", "highlights"];
 
 for (const collection of collections) {
   const source = path.join(root, "content", collection);

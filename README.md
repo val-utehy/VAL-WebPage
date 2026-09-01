@@ -9,7 +9,7 @@ Build a premium academic research-lab website for **Vision and Learning Lab (VAL
 ## Main features
 
 - English and Vietnamese routes: `/en/` and `/vi/`
-- Browser-language detection on the static root page
+- The root page opens the English site (`/en/`) by default
 - Rounded local fonts: Nunito Variable and Roboto Variable
 - Automatic system light/dark detection before React hydration
 - Visible theme switch with the visitor’s choice stored in `localStorage`

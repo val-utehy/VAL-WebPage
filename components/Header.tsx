@@ -11,8 +11,8 @@ type NavCopy = {
   about: string;
   publications: string;
   people: string;
-  news: string;
-  contact: string;
+  gallery: string;
+  highlights: string;
   workWithUs: string;
   menu: string;
   language: string;
@@ -37,8 +37,8 @@ export function Header({
       [copy.about, withLocale(lang, "/about")],
       [copy.publications, withLocale(lang, "/publications")],
       [copy.people, withLocale(lang, "/people")],
-      [copy.news, withLocale(lang, "/news")],
-      [copy.contact, withLocale(lang, "/contact")],
+      [copy.highlights, withLocale(lang, "/highlights")],
+      [copy.gallery, withLocale(lang, "/gallery")],
     ],
     [copy, lang],
   );
@@ -48,6 +48,13 @@ export function Header({
     window.addEventListener("resize", close);
     return () => window.removeEventListener("resize", close);
   }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = previousOverflow; };
+  }, [open]);
 
   /* Fade the header in proportion to the scroll position, so its surface
      follows the reader instead of toggling between two visual states. */
@@ -77,6 +84,7 @@ export function Header({
 
   const headerClass = [
     "site-header",
+    open ? "site-header--menu-open" : "",
     hidden && !open ? "site-header--hidden" : "",
   ].filter(Boolean).join(" ");
   const headerStyle = {
@@ -98,7 +106,7 @@ export function Header({
           <LogoMark compact top={brand.top} bottom={brand.bottom} />
         </Link>
         <button
-          className="menu-toggle"
+          className={open ? "menu-toggle is-open" : "menu-toggle"}
           type="button"
           aria-expanded={open}
           aria-controls="primary-navigation"
@@ -111,8 +119,8 @@ export function Header({
         </button>
         <nav id="primary-navigation" className={open ? "nav nav--open" : "nav"}>
           {links.map(([label, href]) => (
-            <Link key={href} href={href} onClick={() => setOpen(false)}>
-              {label}
+            <Link className="nav-link" key={href} href={href} onClick={() => setOpen(false)}>
+              {label}<span aria-hidden="true">↗</span>
             </Link>
           ))}
           <div className="locale-switch" aria-label={copy.language}>
@@ -121,7 +129,7 @@ export function Header({
                 key={locale}
                 href={switchPath(locale)}
                 className={locale === lang ? "is-active" : ""}
-                onClick={() => { localStorage.setItem("vllab-locale", locale); setOpen(false); }}
+                onClick={() => setOpen(false)}
                 hrefLang={locale}
               >
                 {locale.toUpperCase()}
@@ -129,7 +137,7 @@ export function Header({
             ))}
           </div>
           <Link className="nav-cta" href={withLocale(lang, "/join")} onClick={() => setOpen(false)}>
-            {copy.workWithUs}
+            {copy.workWithUs}<span aria-hidden="true">↗</span>
           </Link>
         </nav>
       </div>

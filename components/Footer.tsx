@@ -20,32 +20,23 @@ export function Footer({
     bottom: string;
   };
   brand: { top: string; bottom: string };
-  nav: { about: string; publications: string; people: string; gallery: string; news: string; contact: string };
+  nav: { about: string; publications: string; people: string; gallery: string; highlights: string };
 }) {
   return (
     <footer className="footer">
       <div className="shell footer-grid">
-        <div>
-          <LogoMark top={brand.top} bottom={brand.bottom} />
+        <div className="footer-brand">
+          <LogoMark compact top={brand.top} bottom={brand.bottom} />
           <p>{copy.description}</p>
         </div>
-        <div>
+        <nav className="footer-links" aria-label={copy.explore}>
           <h3>{copy.explore}</h3>
-          <Link href={withLocale(lang, "/about")}>{nav.about}</Link>
-          <Link href={withLocale(lang, "/publications")}>{nav.publications}</Link>
-          <Link href={withLocale(lang, "/people")}>{nav.people}</Link>
-          <Link href={withLocale(lang, "/gallery")}>{nav.gallery}</Link>
-          <Link href={withLocale(lang, "/news")}>{nav.news}</Link>
-        </div>
-        <div>
+          <div><Link href={withLocale(lang, "/about")}>{nav.about}</Link><Link href={withLocale(lang, "/publications")}>{nav.publications}</Link><Link href={withLocale(lang, "/people")}>{nav.people}</Link><Link href={withLocale(lang, "/gallery")}>{nav.gallery}</Link><Link href={withLocale(lang, "/highlights")}>{nav.highlights}</Link></div>
+        </nav>
+        <div className="footer-contact">
           <h3>{copy.connect}</h3>
-          <Link href={withLocale(lang, "/join")}>{copy.join}</Link>
-          <Link href={withLocale(lang, "/contact")}>{nav.contact}</Link>
-          <a href="mailto:vallab.utehy@gmail.com">vallab.utehy@gmail.com</a>
-        </div>
-        <div>
-          <h3>{copy.location}</h3>
-          <p>{copy.address.split("\n").map((line) => <span key={line}>{line}<br /></span>)}</p>
+          <div><Link href={withLocale(lang, "/join")}>{copy.join} <span aria-hidden="true">↗</span></Link><a href="mailto:vallab.utehy@gmail.com">vallab.utehy@gmail.com</a></div>
+          <p>{copy.address.split("\n").slice(0, 2).map((line) => <span key={line}>{line}<br /></span>)}</p>
         </div>
       </div>
       <div className="shell footer-bottom"><span>© 2026 Vision and Learning Lab</span><span>{copy.bottom}</span></div>
