@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState, type CSSProperties } from "react";
+import { createPortal } from "react-dom";
 import type { Locale } from "@/lib/i18n";
 import { withLocale } from "@/lib/i18n";
 import { LogoMark } from "./LogoMark";
@@ -28,6 +29,8 @@ export function Header({
   brand: { top: string; bottom: string };
 }) {
   const [open, setOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const pathname = usePathname();
@@ -44,9 +47,12 @@ export function Header({
   );
 
   useEffect(() => {
-    const close = () => setOpen(false);
-    window.addEventListener("resize", close);
-    return () => window.removeEventListener("resize", close);
+    const query = window.matchMedia("(max-width: 980px)");
+    const update = () => setIsMobile(query.matches);
+    setMounted(true);
+    update();
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
   }, []);
 
   useEffect(() => {
@@ -99,6 +105,22 @@ export function Header({
     return pathname.replace(/^\/(en|vi)(?=\/|$)/, `/${target}`);
   }
 
+  const navigation = (
+    <nav id="primary-navigation" className={open ? "nav nav--open" : "nav"}>
+      {links.map(([label, href]) => (
+        <Link className="nav-link" key={href} href={href} onClick={() => setOpen(false)}>
+          {label}<span aria-hidden="true">↗</span>
+        </Link>
+      ))}
+      <div className="locale-switch" aria-label={copy.language}>
+        {(["en", "vi"] as Locale[]).map((locale) => (
+          <Link key={locale} href={switchPath(locale)} className={locale === lang ? "is-active" : ""} onClick={() => setOpen(false)} hrefLang={locale}>{locale.toUpperCase()}</Link>
+        ))}
+      </div>
+      <Link className="nav-cta" href={withLocale(lang, "/join")} onClick={() => setOpen(false)}>{copy.workWithUs}<span aria-hidden="true">↗</span></Link>
+    </nav>
+  );
+
   return (
     <header className={headerClass} style={headerStyle}>
       <div className="shell header-inner">
@@ -117,29 +139,7 @@ export function Header({
           <span />
           <span className="sr-only">{copy.menu}</span>
         </button>
-        <nav id="primary-navigation" className={open ? "nav nav--open" : "nav"}>
-          {links.map(([label, href]) => (
-            <Link className="nav-link" key={href} href={href} onClick={() => setOpen(false)}>
-              {label}<span aria-hidden="true">↗</span>
-            </Link>
-          ))}
-          <div className="locale-switch" aria-label={copy.language}>
-            {(["en", "vi"] as Locale[]).map((locale) => (
-              <Link
-                key={locale}
-                href={switchPath(locale)}
-                className={locale === lang ? "is-active" : ""}
-                onClick={() => setOpen(false)}
-                hrefLang={locale}
-              >
-                {locale.toUpperCase()}
-              </Link>
-            ))}
-          </div>
-          <Link className="nav-cta" href={withLocale(lang, "/join")} onClick={() => setOpen(false)}>
-            {copy.workWithUs}<span aria-hidden="true">↗</span>
-          </Link>
-        </nav>
+        {isMobile && mounted ? createPortal(navigation, document.body) : navigation}
       </div>
     </header>
   );
