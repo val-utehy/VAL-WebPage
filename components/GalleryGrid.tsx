@@ -2,10 +2,12 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import Masonry from "react-masonry-css";
 import type { GalleryItem } from "@/lib/gallery";
 import { assetPath } from "@/lib/assets";
 
 const slideDuration = 4000;
+const galleryBreakpoints = { default: 3, 980: 2, 680: 1 };
 
 export function GalleryGrid({
   items,
@@ -42,7 +44,11 @@ export function GalleryGrid({
 
   return (
     <>
-      <div className="gallery-grid">
+      <Masonry
+        breakpointCols={galleryBreakpoints}
+        className="gallery-grid"
+        columnClassName="gallery-grid__column"
+      >
         {items.map((item, index) => (
           <button
             className={`gallery-card gallery-card--${(index % 5) + 1}`}
@@ -65,7 +71,7 @@ export function GalleryGrid({
             </span>
           </button>
         ))}
-      </div>
+      </Masonry>
 
       {active ? (
         <div className="gallery-lightbox" role="dialog" aria-modal="true" aria-label={active.title}>

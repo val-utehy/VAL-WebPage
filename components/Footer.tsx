@@ -35,7 +35,7 @@ export function Footer({
         </nav>
         <div className="footer-contact">
           <h3>{copy.connect}</h3>
-          <div><Link href={withLocale(lang, "/join")}>{copy.join} <span aria-hidden="true">↗</span></Link><a href="mailto:vallab.utehy@gmail.com">vallab.utehy@gmail.com</a></div>
+          <div><Link href={withLocale(lang, "/join")}>{copy.join}</Link><a href="mailto:vallab.utehy@gmail.com">vallab.utehy@gmail.com</a></div>
           <p>{copy.address.split("\n").slice(0, 2).map((line) => <span key={line}>{line}<br /></span>)}</p>
         </div>
       </div>
