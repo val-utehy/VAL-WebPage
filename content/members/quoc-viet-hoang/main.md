@@ -1,7 +1,7 @@
 ---
 name: Quoc-Viet Hoang
-role: Lecturer · Faculty of Information Technology, UTEHY
-roleVi: Giảng viên · Khoa Công nghệ Thông tin, UTEHY
+role: Dr. · Lecturer, Faculty of Information Technology, UTEHY
+roleVi: TS. · Giảng viên, Khoa Công nghệ Thông tin, UTEHY
 group: faculty
 order: 2
 initials: QV
